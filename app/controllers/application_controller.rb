@@ -14,6 +14,16 @@ class ApplicationController < ActionController::Base
 
     # redirect_to("https://www.wikipedia.org")
     # render({ :html => "<h1>Hello, world!</h1>".html_safe})
+    @comp_move = ["rock", "paper", "scissors"].sample 
+
+    if @comp_move == "rock"
+      @outcome = "tied"
+    elsif @comp_move == "paper"
+      @outcome = "lost"
+    elsif @comp_move == "scissors"
+      @outcome = "won"
+    end
+
     render({ :template => "game_templates/user_rock.html.erb", :layout => "wrapper.html.erb"})
   end
 
@@ -32,6 +42,15 @@ class ApplicationController < ActionController::Base
   end
 
   def play_scissors 
+    @comp_move = ["rock", "paper", "scissors"].sample 
+
+    if @comp_move == "rock"
+      @outcome = "lost"
+    elsif @comp_move == "paper"
+      @outcome = "won"
+    elsif @comp_move == "scissors"
+      @outcome = "tied"
+    end
     render({ :template => "game_templates/user_scissors.html.erb"})
   end
 
